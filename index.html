@@ -412,10 +412,90 @@
       }
     }
 
-    @media (pointer: coarse) {
+@media (pointer: coarse) {
       .custom-cursor,
       .cursor-follower {
         display: none !important;
+      }
+    }
+
+    /* ===== PROJECTS CAROUSEL ===== */
+    .projects-carousel {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    .projects-viewport {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .projects-track {
+      display: flex;
+      gap: 30px;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    .project-card {
+      flex: 0 0 calc(50% - 15px);
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .projects-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .projects-nav-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .projects-nav-btn:hover {
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+      border-color: transparent;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+    }
+
+    .projects-nav-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    @media (max-width: 900px) {
+      .project-card {
+        flex-basis: calc(50% - 15px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .project-card {
+        flex-basis: 100%;
+      }
+      .projects-nav {
+        margin-top: 25px;
       }
     }
   </style>
@@ -707,68 +787,144 @@
         professional experience.</p>
     </div>
 
-    <div
-      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
-      <div class="glass-card reveal"
-        style="padding: clamp(20px, 4vw, 30px); display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-          <div
-            style="background: rgba(255,255,255,0.03); border-radius: 12px; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid var(--border-color); overflow: hidden;">
-            <img src="car-detailing.png" alt="M.A Detailing Studio" style="width:100%; height:100%; object-fit:cover; object-position:top center; display:block; border-radius:inherit;">
+<div class="projects-carousel">
+      <div class="projects-viewport">
+        <div class="projects-track" id="projectsTrack">
+
+          <div class="glass-card reveal project-card"
+            style="padding: clamp(20px, 4vw, 30px); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div
+                style="background: rgba(255,255,255,0.03); border-radius: 12px; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid var(--border-color); overflow: hidden;">
+                <img src="car-detailing.png" alt="M.A Detailing Studio" style="width:100%; height:100%; object-fit:cover; object-position:top center; display:block; border-radius:inherit;">
+              </div>
+              <h3 style="font-size: 1.4rem; margin-bottom: 12px;">M.A Detailing Studio</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+                Luxury car detailing website with premium UI, service showcase, booking section, responsive layouts, PPF
+                visualizer concept, elegant typography and smooth animations.
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px;">
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-cyan);">HTML</span>
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-blue);">CSS</span>
+                <span class="glass-card"
+                  style="padding: 4px 10px; font-size: 12px; color: var(--accent-purple);">JavaScript</span>
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-violet);">PHP</span>
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: #10B981;">MySQL</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <a href="https://hasnainalishaikh.github.io/car-detailing-website2/" target="_blank" rel="noopener noreferrer" class="btn-primary"
+                style="flex: 1; min-width: 120px; justify-content: center; padding: 10px; font-size: 14px;">Live Demo <i
+                  class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              <a href="https://github.com/hasnainalishaikh/car-detailing-website2.git" target="_blank" class="btn-secondary"
+                style="flex: 1; min-width: 120px; justify-content: center; padding: 10px; font-size: 14px;">GitHub <i
+                  class="fa-brands fa-github"></i></a>
+            </div>
           </div>
-          <h3 style="font-size: 1.4rem; margin-bottom: 12px;">M.A Detailing Studio</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
-            Luxury car detailing website with premium UI, service showcase, booking section, responsive layouts, PPF
-            visualizer concept, elegant typography and smooth animations.
-          </p>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px;">
-            <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-cyan);">HTML</span>
-            <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-blue);">CSS</span>
-            <span class="glass-card"
-              style="padding: 4px 10px; font-size: 12px; color: var(--accent-purple);">JavaScript</span>
-            <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-violet);">PHP</span>
-            <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: #10B981;">MySQL</span>
+
+          <div class="glass-card reveal project-card"
+            style="padding: clamp(20px, 4vw, 30px); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div
+                style="background: rgba(255,255,255,0.03); border-radius: 12px; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid var(--border-color); overflow: hidden;">
+                <img src="vital-mobile.png" alt="Vital Mobiles" style="width:100%; height:100%; object-fit:cover; object-position:top center; display:block; border-radius:inherit;">
+              </div>
+              <h3 style="font-size: 1.4rem; margin-bottom: 12px;">Vital Mobiles</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+                Modern e-commerce website featuring product listings, product pages, shopping cart, checkout, reviews and
+                responsive layouts with clean UI.
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px;">
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-cyan);">HTML</span>
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-blue);">CSS</span>
+                <span class="glass-card"
+                  style="padding: 4px 10px; font-size: 12px; color: var(--accent-purple);">JavaScript</span>
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-violet);">PHP</span>
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: #10B981;">MySQL</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <a href="#projects" class="btn-primary"
+                style="flex: 1; min-width: 120px; justify-content: center; padding: 10px; font-size: 14px;">Live Demo <i
+                  class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              <a href="#projects" class="btn-secondary"
+                style="flex: 1; min-width: 120px; justify-content: center; padding: 10px; font-size: 14px;">GitHub <i
+                  class="fa-brands fa-github"></i></a>
+            </div>
           </div>
-        </div>
-        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-          <a href="https://hasnainalishaikh.github.io/car-detailing-website2/" target="_blank" rel="noopener noreferrer" class="btn-primary"
-            style="flex: 1; min-width: 120px; justify-content: center; padding: 10px; font-size: 14px;">Live Demo <i
-              class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          <a href="https://github.com/hasnainalishaikh/car-detailing-website2.git" target="_blank" class="btn-secondary"
-            style="flex: 1; min-width: 120px; justify-content: center; padding: 10px; font-size: 14px;">GitHub <i
-              class="fa-brands fa-github"></i></a>
+
+          <div class="glass-card reveal project-card"
+            style="padding: clamp(20px, 4vw, 30px); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div
+                style="background: rgba(255,255,255,0.03); border-radius: 12px; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid var(--border-color); overflow: hidden;">
+                <img src="hospital-management.png" alt="Hospital Management System" style="width:100%; height:100%; object-fit:cover; object-position:top center; display:block; border-radius:inherit;">
+              </div>
+              <h3 style="font-size: 1.4rem; margin-bottom: 12px;">Hospital Management System</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+                Complete hospital management platform with patient records, appointment scheduling, doctor management,
+                billing and reporting built with a clean, professional interface.
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px;">
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-cyan);">HTML</span>
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-blue);">CSS</span>
+                <span class="glass-card"
+                  style="padding: 4px 10px; font-size: 12px; color: var(--accent-purple);">JavaScript</span>
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-violet);">PHP</span>
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: #10B981;">MySQL</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <a href="#projects" class="btn-primary"
+                style="flex: 1; min-width: 120px; justify-content: center; padding: 10px; font-size: 14px;">Live Demo <i
+                  class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              <a href="#projects" class="btn-secondary"
+                style="flex: 1; min-width: 120px; justify-content: center; padding: 10px; font-size: 14px;">GitHub <i
+                  class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+
+          <div class="glass-card reveal project-card"
+            style="padding: clamp(20px, 4vw, 30px); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div
+                style="background: rgba(255,255,255,0.03); border-radius: 12px; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid var(--border-color); overflow: hidden;">
+                <img src="islamic-website.png" alt="Islamic Website" style="width:100%; height:100%; object-fit:cover; object-position:top center; display:block; border-radius:inherit;">
+              </div>
+              <h3 style="font-size: 1.4rem; margin-bottom: 12px;">Islamic Website</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+                Elegant Islamic website with prayer times, Quran reading, guidance content and a serene, responsive
+                design showcasing premium UI and smooth interactions.
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px;">
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-cyan);">HTML</span>
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-blue);">CSS</span>
+                <span class="glass-card"
+                  style="padding: 4px 10px; font-size: 12px; color: var(--accent-purple);">JavaScript</span>
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-violet);">PHP</span>
+                <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: #10B981;">MySQL</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <a href="#projects" class="btn-primary"
+                style="flex: 1; min-width: 120px; justify-content: center; padding: 10px; font-size: 14px;">Live Demo <i
+                  class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              <a href="#projects" class="btn-secondary"
+                style="flex: 1; min-width: 120px; justify-content: center; padding: 10px; font-size: 14px;">GitHub <i
+                  class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <div class="glass-card reveal"
-        style="padding: clamp(20px, 4vw, 30px); display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-          <div
-            style="background: rgba(255,255,255,0.03); border-radius: 12px; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; border: 1px solid var(--border-color); overflow: hidden;">
-            <img src="vital-mobile.png" alt="Vital Mobiles" style="width:100%; height:100%; object-fit:cover; object-position:top center; display:block; border-radius:inherit;">
-          </div>
-          <h3 style="font-size: 1.4rem; margin-bottom: 12px;">Vital Mobiles</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
-            Modern e-commerce website featuring product listings, product pages, shopping cart, checkout, reviews and
-            responsive layouts with clean UI.
-          </p>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 25px;">
-            <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-cyan);">HTML</span>
-            <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-blue);">CSS</span>
-            <span class="glass-card"
-              style="padding: 4px 10px; font-size: 12px; color: var(--accent-purple);">JavaScript</span>
-            <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: var(--accent-violet);">PHP</span>
-            <span class="glass-card" style="padding: 4px 10px; font-size: 12px; color: #10B981;">MySQL</span>
-          </div>
-        </div>
-        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-          <a href="#projects" class="btn-primary"
-            style="flex: 1; min-width: 120px; justify-content: center; padding: 10px; font-size: 14px;">Live Demo <i
-              class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          <a href="#projects" class="btn-secondary"
-            style="flex: 1; min-width: 120px; justify-content: center; padding: 10px; font-size: 14px;">GitHub <i
-              class="fa-brands fa-github"></i></a>
-        </div>
+      <div class="projects-nav">
+        <button class="projects-nav-btn" id="projectsPrev" aria-label="Previous projects">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="projects-nav-btn" id="projectsNext" aria-label="Next projects">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
       </div>
     </div>
 
@@ -1072,6 +1228,68 @@
         }
       });
     });
+
+    // ===== Projects Carousel =====
+    const projectsTrack = document.getElementById('projectsTrack');
+    const projectsPrevBtn = document.getElementById('projectsPrev');
+    const projectsNextBtn = document.getElementById('projectsNext');
+
+    if (projectsTrack && projectsPrevBtn && projectsNextBtn) {
+      const projectCards = Array.from(projectsTrack.querySelectorAll('.project-card'));
+      const projectsGap = 30;
+      let projectIndex = 0;
+      let projectsPerView = 2;
+      let maxProjectIndex = 0;
+
+      function getProjectsPerView() {
+        const card = projectCards[0];
+        const viewport = projectsTrack.parentElement;
+        if (!card) return 1;
+        const cardWidth = card.getBoundingClientRect().width;
+        const viewportWidth = viewport.getBoundingClientRect().width;
+        return Math.max(1, Math.round(viewportWidth / (cardWidth + projectsGap)));
+      }
+
+      function updateProjectsCarousel() {
+        projectsPerView = getProjectsPerView();
+        maxProjectIndex = Math.max(0, projectCards.length - projectsPerView);
+        projectIndex = Math.min(projectIndex, maxProjectIndex);
+        const card = projectCards[0];
+        const cardWidth = card.getBoundingClientRect().width;
+        const offset = projectIndex * (cardWidth + projectsGap);
+        projectsTrack.style.transform = `translateX(-${offset}px)`;
+        projectsPrevBtn.disabled = projectIndex === 0;
+        projectsNextBtn.disabled = projectIndex >= maxProjectIndex;
+      }
+
+      projectsNextBtn.addEventListener('click', () => {
+        projectsPerView = getProjectsPerView();
+        maxProjectIndex = Math.max(0, projectCards.length - projectsPerView);
+        if (projectIndex < maxProjectIndex) {
+          projectIndex = Math.min(projectIndex + projectsPerView, maxProjectIndex);
+          updateProjectsCarousel();
+        }
+      });
+
+      projectsPrevBtn.addEventListener('click', () => {
+        projectsPerView = getProjectsPerView();
+        if (projectIndex > 0) {
+          projectIndex = Math.max(0, projectIndex - projectsPerView);
+          updateProjectsCarousel();
+        }
+      });
+
+      window.addEventListener('resize', () => {
+        projectsTrack.style.transition = 'none';
+        updateProjectsCarousel();
+        requestAnimationFrame(() => {
+          projectsTrack.style.transition = '';
+        });
+      });
+
+      window.addEventListener('load', updateProjectsCarousel);
+      updateProjectsCarousel();
+    }
 
     // Initialize EmailJS with Public Key
     (function() {
